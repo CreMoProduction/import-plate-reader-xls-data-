@@ -5,6 +5,7 @@ library(xlsx)
 
 files_in_folder= 24 #здесь кол-во файлов
 count_points=4 #кол-во измерений
+folder_path= "E:/input_data" #папка входных данных
 files_in_folder=files_in_folder/count_points
 
 xlsfiles= c()
@@ -27,12 +28,12 @@ for (i in 1:files_in_folder) {
   for(N in n:k) {
     xlsfiles[N]
     filename= xlsfiles[N]
-    datapath= file.path("D:/input_data",paste(filename,".xls", sep=""))
+    datapath= file.path(folder_path,paste(filename,".xls", sep=""))
     dataset <- read_excel(datapath, sheet = sheet)
     File=rbind(File, dataset)
   }
   print(i)
-  filepath=paste("D:/input_data/plate_",i, ".xlsx", sep="")
+  filepath=paste(paste(folder_path,"/plate_", sep=""),i, ".xlsx", sep="")
   export(File, filepath)
   rm(File)
   print(xlsfiles[n:k])
