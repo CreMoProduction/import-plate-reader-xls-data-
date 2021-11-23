@@ -32,13 +32,17 @@ for (i in 1:files_in_folder) {
     datapath= file.path(folder_path,paste(filename,".xls", sep=""))
     dataset <- read_excel(datapath, sheet = sheet)
     Date_modified=file.mtime(datapath)
-    if (N==1) {
+    if (grepl("#0", xlsfiles[N])== TRUE) {
       Date_modified_0=file.mtime(datapath)
-      dataset[1, 8] = 0
+      dataset[1, 7] = 0
     } else {
-      as.numeric(Date_modified)-as.numeric(Date_modified_0)
+      dataset[1, 7]=as.numeric(difftime(Date_modified, Date_modified_0, units="hours"))
     }
-    dataset[1, 7] = toString(Date_modified, format="%Y-%m-%d %H:%M:%S")
+    dataset[1, 1]=as.character(Date_modified)
+    
+    
+    
+
     
     File=rbind(File, dataset)
   }
@@ -50,7 +54,6 @@ for (i in 1:files_in_folder) {
   n=n+count_points
   k=k+count_points
 }
-
 
 
 
