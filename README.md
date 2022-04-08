@@ -2,8 +2,11 @@
 --------An I/O data script for Plate Reader Wallac 1420--------
 
 Import xls data from Plate Reader Wallac 1420, collect all measures per plate from excel sheet "Plate" together and export it into new plate xlsx files. 
+
 **For example:**
+
 `<plate1 #0.xls>`,`<plate1 #1.xls>`,`<plate1 #2.xls>`,`<plate1 #3.xls>`, --> `<plate1.xlsx>`.
+
 `<plate2 #0.xls>`,`<plate2 #1.xls>`,`<plate2 #2.xls>`,`<plate2 #3.xls>`, --> `<plate2.xlsx>`.
 ### Why it is needed?
 When you measure the growth curve in the Plate Reader, it is important to collect all files easily to plot the growth curve graph. Every xls file stores every time point of measurement for all of the samples (wells). 
